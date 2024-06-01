@@ -1,0 +1,80 @@
+@startuml
+
+map User {
+    _id => PK
+
+    name => string
+    email => string
+    password_hash => string
+}
+
+' map CustomStock {
+'     _id => PK
+
+'     user_id => FK
+
+'     symbol => string
+'     name => string
+'     description => string
+' }
+' CustomStock::user_id --> User
+
+' map CustomStockPrice {
+'     _id => PK
+'     custom_stock_id => FK
+
+'     price => number
+'     date => date
+' }
+' CustomStockPrice::custom_stock_id --> CustomStock
+
+map Portfolio {
+    _id => PK
+
+    user_id => FK
+
+    name => string
+    description => string
+}
+Portfolio::user_id -> User
+
+map FinancialInstrument {
+    _id => PK
+
+    portfolio_id => FK
+    ' custom_stock_id => FK
+
+    symbol => string
+    short_name => string
+    asset_type => string
+    exchange => string
+    country => string
+    currency => string
+}
+FinancialInstrument::portfolio_id --> Portfolio
+' FinancialInstrument::custom_stock_id --> CustomStock
+
+enum TransactionType {
+    buy
+    sell
+    split
+    dividend
+}
+
+map Transaction {
+    _id => PK
+
+    financial_instrucment_id => FK
+    
+    quantity => number
+    price_per_piece => number
+    comission => number
+    is_commission_percentage => boolean
+    transaction_type =>
+    transaction_date => date
+    notes => string
+}
+Transaction::financial_instrucment_id --> FinancialInstrument
+Transaction::transaction_type --> TransactionType
+
+@enduml
