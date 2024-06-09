@@ -1,7 +1,7 @@
-import { FinanceChartModel } from "./finance_chart_model";
-import { SearchSymbolModel } from "./search_symbol_model";
+import { FinanceChartModel } from "./FinanceChartModel";
+import { SearchSymbolModel } from "./SearchSymbolModel";
 
-export { 
-    FinanceChartModel,
-    SearchSymbolModel
+export {
+  FinanceChartModel,
+  SearchSymbolModel
 }

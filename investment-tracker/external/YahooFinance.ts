@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {ApiResponseModel} from '../model/api_response_model';
+import {ApiResponseModel} from '../model/ApiResponseModel';
 
 async function getFinanceChart(symbol: string): Promise<ApiResponseModel> {
   return axios
