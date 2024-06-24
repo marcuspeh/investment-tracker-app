@@ -1,5 +1,5 @@
-export interface ApiResponseModel {
+export interface ApiResponseModel<dataType> {
   isSuccess: boolean;
   errorCode?: string;
-  data?: any;
+  data?: dataType;
 }

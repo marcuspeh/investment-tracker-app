@@ -25,11 +25,6 @@ interface FinanceChartMeta {
   validRanges: string[]; // ["1d",  "5d", "1mo", "3mo", "6mo",  "1y",  "2y",  "5y", "10y",  "ytd",  "max"]
 }
 
-interface FinanceChartData {
-  timestamp: number[];
-  quotes: FinanceChartQuotes;
-}
-
 interface FinanceChartQuotes {
   open: number[];
   volume: number[];
@@ -40,4 +35,6 @@ interface FinanceChartQuotes {
 
 export interface FinanceChartModel {
   meta: FinanceChartMeta;
+  timestamps: number[];
+  quotes: FinanceChartQuotes;
 }

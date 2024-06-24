@@ -1,9 +1,11 @@
 import { Stack } from "expo-router";
+import { Text } from "react-native";
 
 export default function RootLayout() {
   return (
     <Stack>
-      <Stack.Screen name="index" />
+      <Stack.Screen name="index" options={{ title: "Investing Tracker App" }} />
+      <Stack.Screen name="stock" options={{ title: "Stocks" }}/>
     </Stack>
   );
 }
