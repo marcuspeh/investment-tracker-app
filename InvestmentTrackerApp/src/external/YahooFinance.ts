@@ -6,8 +6,7 @@ import { chartDataParsed } from '@/mockedData/chart';
 async function getFinanceChart(symbol: string): Promise<ApiResponseModel<FinanceChartModel>> {
   return axios
     .get(
-      `https://query1.finance.yahoo.com/v8/finance/chart/${symbol}`,
-      { 'headers': { 'User-Agent': 'PostmanRuntime/7.39.0'}}
+      `http://localhost:3000/api/v1/getFinanceChart/${symbol}`
     )
     .then(response => {
       const result = response.data?.chart?.result;
@@ -45,7 +44,6 @@ async function searchSymbol(
   return axios
     .get(
       `https://query1.finance.yahoo.com/v1/finance/search?q=${query}&quotesCount=${limit}&newsCount=0&enableFuzzyQuery=false&quotesQueryId=tss_match_phrase_query&multiQuoteQueryId=multi_quote_single_token_query&newsQueryId=news_cie_vespa&enableCb=true&enableNavLinks=true&enableEnhancedTrivialQuery=true`,
-      { 'headers': { 'User-Agent': 'PostmanRuntime/7.39.0'}}
     )
     .then(response => {
       return {
