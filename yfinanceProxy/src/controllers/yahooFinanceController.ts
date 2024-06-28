@@ -1,16 +1,47 @@
 import {Context} from 'koa';
-import axios from 'axios';
+import { getFinanceChartService, getQuoteService, searchSymbolsService } from '../service/yahooFinanceService';
 
 async function getFinanceChart(ctx: Context) {
   const symbol: string = ctx.params.symbol || ""
-  const response = await axios.get(
-      `https://query1.finance.yahoo.com/v8/finance/chart/${symbol}`
-    )
+  if (!symbol) {
+    ctx.status = 400
+    return;
+  }
 
-  ctx.body = response.data
-  ctx.status = response.status
+  const rangeToIntervalMap = {
+    '1d': '2m',
+    '5d': '15m',
+    '1mo': '30m',
+    '6mo': '1d',
+    '1y': '1d',
+    '5y': '1wk',
+    'max': '1mo'
+  }
+  const range: string = ctx.request.query.range as string || "1mo"
+  const interval: string = rangeToIntervalMap[range] 
+
+  ctx.body = await getFinanceChartService(symbol, range, interval)
+}
+
+async function getQuote(ctx: Context) {
+  const symbol: string = ctx.params.symbol || ""
+  if (!symbol) {
+    ctx.status = 400
+    return;
+  }
+
+  ctx.body = await getQuoteService(symbol)
+}
+
+async function searchSymbols(ctx: Context) {
+  const query: string = ctx.request.query.q as string || ""
+  const limit: number = Number(ctx.request.query.limit as string) || 10
+
+  ctx.body = await searchSymbolsService(query, limit)
 }
 
 export default {
   getFinanceChart,
+  getQuote,
+  searchSymbols,
 };

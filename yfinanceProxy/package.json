@@ -3,13 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon",
     "build": "tsc",
     "lint": "gts lint",
     "clean": "gts clean",
     "fix": "gts fix",
-    "tsc": "tsc && echo 'tsc-ed'",
-    "serve": "ts-node src/server.ts"
+    "dev": "ts-node src/server.ts"
   },
   "keywords": [],
   "author": "marcuspeh",

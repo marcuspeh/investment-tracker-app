@@ -8,5 +8,14 @@ router.get('/getFinanceChart/:symbol', async (ctx: Context) => {
   await yahooFinanceController.getFinanceChart(ctx);
 });
 
+router.get('/getQuote/:symbol', async (ctx: Context) => {
+  await yahooFinanceController.getQuote(ctx);
+});
+
+router.get('/searchSymbol', async (ctx: Context) => {
+  await yahooFinanceController.searchSymbols(ctx);
+});
+
+
 const yahooFinanceRoutes = router.routes();
 export default yahooFinanceRoutes;
