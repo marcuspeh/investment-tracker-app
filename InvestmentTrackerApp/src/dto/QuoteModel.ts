@@ -1,0 +1,23 @@
+export interface QuoteModel {
+  region: string                        // US"
+  quoteType: string                     // EQUITY"
+  currency: string                      // USD"
+  regularMarketChangePercent: number    // -0.14068139
+  regularMarketPrice: number            // 212.95
+  exchange: string                      // NMS"
+  market: string                        // us_market"
+  regularMarketChange: number           // -0.30000305
+  regularMarketTime: number             // 1719502970
+  fullExchangeName: string              // NasdaqGS"
+  financialCurrency: string             // USD"
+  averageDailyVolume10Day: number       // 107411900
+  fiftyTwoWeekLow: number               // 164.08
+  fiftyTwoWeekHigh: number              // 220.2
+  trailingPE: number                    // 33.06677
+  dividendRate: number                  // 1
+  dividendYield: number                 // 0.47
+  marketCap: number                     // 3265396473856
+  cryptoTradeable: number               // false
+  displayName: string                   // Apple"
+  symbol: string                        // AAPL"
+}

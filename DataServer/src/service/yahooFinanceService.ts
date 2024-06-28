@@ -1,11 +1,9 @@
-import { FinanceChartModel } from '@/model/FinanceChartModel';
-import { QuoteModel } from '@/model/QuoteModel';
-import { SearchResultModel, SearchSymbolModel } from '@/model/SearchSymbolModel';
-import axios, { Axios, AxiosRequestConfig } from 'axios';
+import { SearchResultModel, SearchSymbolModel, QuoteModel, FinanceChartModel } from '../dto';
+import axios, { AxiosRequestConfig } from 'axios';
 
 
-var invalidCookieTime: Date = new Date()
-var cookieCache: string = ""
+let invalidCookieTime: Date = new Date()
+let cookieCache: string = ""
 async function getCookie(): Promise<string> {
   const currTime = new Date()
   if (invalidCookieTime.getTime() > currTime.getTime() && cookieCache !== "") {
@@ -24,8 +22,8 @@ async function getCookie(): Promise<string> {
   return cookieCache
 }
 
-var invalidCrumbTime: Date = new Date()
-var crumbCache: string = ""
+let invalidCrumbTime: Date = new Date()
+let crumbCache: string = ""
 async function getCrumb(): Promise<string> {
   const currTime = new Date()
   if (invalidCrumbTime.getTime() > currTime.getTime() && crumbCache !== "") {
@@ -104,7 +102,7 @@ async function getFinanceChartService(symbol: string, range: string, interval: s
     return {} as FinanceChartModel;
   }
 
-  var parsedResponse: FinanceChartModel = {
+  const parsedResponse: FinanceChartModel = {
     timestamps: result[0]?.timestamp,
     close: result[0]?.indicators.quote[0]?.close,
   }
@@ -118,6 +116,9 @@ async function searchSymbolsService(query: string, limit: number): Promise<Searc
 
   const result: SearchSymbolModel[] = []
   for (const row of response.data.quotes) {
+    if (row?.shortname === "" || row?.shortname === undefined) {
+      continue
+    }
     result.push({
       shortname: row.shortname,
       quoteType: row.quoteType,

@@ -12,7 +12,7 @@ export default function HomeScreen() {
   const [stockData, setStockData] = useState<FinanceChartModel>(chartDataParsed)
 
   useEffect(() => {
-    getFinanceChart("amd").
+    getFinanceChart("aapl").
       then((response: ApiResponseModel<FinanceChartModel>) => {
         if (!response.isSuccess) {
           console.log("Failed to get chart data")
@@ -27,7 +27,7 @@ export default function HomeScreen() {
     <ThemedView style={styles.body}>
       <View style={styles.container}>
         <ThemedText type="h4">{stockData.meta.symbol}</ThemedText>
-        <ThemedText type="h4">{stockData.meta.previousClose}</ThemedText>3
+        <ThemedText type="h4">{stockData.meta.previousClose}</ThemedText>
       </View>
     </ThemedView>
   );
