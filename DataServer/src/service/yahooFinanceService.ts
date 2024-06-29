@@ -78,17 +78,18 @@ async function getQuoteService(symbol: string): Promise<QuoteModel> {
     regularMarketTime: result[0]?.regularMarketTime,
     fullExchangeName: result[0]?.fullExchangeName,
     financialCurrency: result[0]?.financialCurrency,
-    averageDailyVolume10Day: response[0]?.averageDailyVolume10Day,
+    averageDailyVolume10Day: result[0]?.averageDailyVolume10Day,
     fiftyTwoWeekLow: result[0]?.fiftyTwoWeekLow,
     fiftyTwoWeekHigh: result[0]?.fiftyTwoWeekHigh,
     trailingPE: result[0]?.trailingPE,
     dividendRate: result[0]?.dividendRate,
-    dividendYield: response[0]?.dividendYield,
-    marketCap: response[0]?.marketCap,
-    cryptoTradeable: response[0]?.cryptoTradeable,
-    displayName: response[0]?.displayName,
-    symbol: response[0]?.symbol,
+    dividendYield: result[0]?.dividendYield,
+    marketCap: result[0]?.marketCap,
+    cryptoTradeable: result[0]?.cryptoTradeable,
+    displayName: result[0]?.displayName,
+    symbol: result[0]?.symbol,
   }
+  
   return parsedResponse;
 }
 
@@ -124,7 +125,7 @@ async function searchSymbolsService(query: string, limit: number): Promise<Searc
       quoteType: row.quoteType,
       symbol: row.symbol,
       score: row.score,
-      exchDisp: row.exchDis,
+      exchDisp: row.exchDisp,
     })
   }
 

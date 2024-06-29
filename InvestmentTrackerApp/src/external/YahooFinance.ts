@@ -1,8 +1,12 @@
 import axios from 'axios';
 import { ApiResponseModel } from '@/model/ApiResponseModel';
-import { SearchResultModel, SearchSymbolModel, FinanceChartModel } from '../dto';
+import { SearchResultModel, SearchSymbolModel, FinanceChartModel, QuoteModel } from '../dto';
+import { financeChartData } from '@/mockedData/financeChartData';
+import { quoteData } from '@/mockedData/quoteData';
+import { searchSymbolData } from '@/mockedData/searchSymbolData';
 
-const apiUrl = process.env.EXPO_PUBLIC_API_URL;
+const apiUrl: string = process.env.EXPO_PUBLIC_API_URL || "localhost:3000/api/v1";
+const isDev: boolean = process.env.EPXP_PUBLIC_IS_DEV === 'true' || false;
 
 async function getFinanceChart(symbol: string, range: string): Promise<ApiResponseModel<FinanceChartModel>> {
   return axios
@@ -18,11 +22,12 @@ async function getFinanceChart(symbol: string, range: string): Promise<ApiRespon
 
       return {
         isSuccess: false,
+        data: isDev ? financeChartData : undefined
       };
     });
 }
 
-async function getQuote(symbol: string): Promise<ApiResponseModel<SearchResultModel>> {
+async function getQuote(symbol: string): Promise<ApiResponseModel<QuoteModel>> {
   return axios
     .get(`${apiUrl}/getQuote/${symbol}`)
     .then(response => {
@@ -36,6 +41,7 @@ async function getQuote(symbol: string): Promise<ApiResponseModel<SearchResultMo
 
       return {
         isSuccess: false,
+        data: isDev ? quoteData : undefined
       };
     });
 }
@@ -43,11 +49,9 @@ async function getQuote(symbol: string): Promise<ApiResponseModel<SearchResultMo
 async function searchSymbol(
   query: string,
   limit = 10
-): Promise<ApiResponseModel<SearchSymbolModel>> {
+): Promise<ApiResponseModel<SearchResultModel>> {
   return axios
-    .get(
-      `${apiUrl}/searchSymbol?q=${query}&limit=${limit}`,
-    )
+    .get(`${apiUrl}/searchSymbol?q=${query}&limit=${limit}`)
     .then(response => {
       return {
         isSuccess: true,
@@ -59,6 +63,7 @@ async function searchSymbol(
 
       return {
         isSuccess: false,
+        data: isDev ? searchSymbolData : undefined
       };
     });
 }

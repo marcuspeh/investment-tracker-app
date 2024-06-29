@@ -17,7 +17,7 @@ export interface QuoteModel {
   dividendRate: number                  // 1
   dividendYield: number                 // 0.47
   marketCap: number                     // 3265396473856
-  cryptoTradeable: number               // false
+  cryptoTradeable: boolean               // false
   displayName: string                   // Apple"
   symbol: string                        // AAPL"
 }
