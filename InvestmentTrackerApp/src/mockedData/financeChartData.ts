@@ -1,6 +1,6 @@
 import { FinanceChartModel } from "@/dto"
 
-const financeChartData: FinanceChartModel = {
+const mockedFinanceChartData: FinanceChartModel = {
   "timestamps": [
       1716912000,
       1716913800,
@@ -584,5 +584,5 @@ const financeChartData: FinanceChartModel = {
 }
 
 export {
-  financeChartData
+  mockedFinanceChartData
 }

@@ -1,6 +1,6 @@
 import { QuoteModel } from "@/dto"
 
-const quoteData: QuoteModel = {
+const mockedQuoteData: QuoteModel = {
   "region": "US",
   "quoteType": "EQUITY",
   "currency": "USD",
@@ -25,5 +25,5 @@ const quoteData: QuoteModel = {
 }
 
 export {
-  quoteData
+  mockedQuoteData
 }

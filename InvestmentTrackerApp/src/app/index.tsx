@@ -1,9 +1,9 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet } from 'react-native';
 
-import { ThemedText } from "@/components/ThemedText";
-import { ThemedView } from "@/components/ThemedView";
-import { InternalLink } from "@/components/InternalLink";
+import { ThemedText } from "@/components/atoms/ThemedText";
+import { ThemedView } from "@/components/atoms/ThemedView";
+import { InternalLink } from "@/components/atoms/InternalLink";
 
 export default function HomeScreen() {
   return (

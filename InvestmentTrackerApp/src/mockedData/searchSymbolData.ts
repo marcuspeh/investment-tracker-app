@@ -1,6 +1,6 @@
 import { SearchResultModel } from "@/dto"
 
-const searchSymbolData: SearchResultModel = {
+const mockedSearchSymbolData: SearchResultModel = {
   "quotes": [
       {
           "shortname": "Advance Auto Parts Inc.",
@@ -27,5 +27,5 @@ const searchSymbolData: SearchResultModel = {
 }
 
 export {
-  searchSymbolData,
+  mockedSearchSymbolData,
 }

@@ -1,34 +1,39 @@
-import { StyleSheet, View } from 'react-native';
-
-import { ThemedText } from "@/components/ThemedText";
-import { ThemedView } from "@/components/ThemedView";
+import { StyleSheet } from 'react-native';
 import { useEffect, useState } from 'react';
-import { getFinanceChart } from '@/external/YahooFinance'
+
+import { ThemedView } from "@/components/atoms/ThemedView";
+import { getQuote } from '@/external/YahooFinance'
 import { ApiResponseModel } from '@/model/ApiResponseModel';
-import { FinanceChartModel } from '@/model/external';
-import { chartDataParsed } from '@/mockedData/chart';
+import { QuoteModel } from '@/dto';
+import { mockedQuoteData } from '@/mockedData/quoteData';
+import { MarketStats } from '@/components/stockDetails/MarketStats';
+import { StockHeader } from '@/components/stockDetails/StockHeader';
+import { ThemedLineChart } from '@/components/atoms/ThemedLineChart';
+import { QuoteChart } from '@/components/stockDetails/QuoteChart';
 
 export default function HomeScreen() {
-  const [stockData, setStockData] = useState<FinanceChartModel>(chartDataParsed)
+  const [quoteData, setQuoteData] = useState<QuoteModel>(mockedQuoteData)
 
   useEffect(() => {
-    getFinanceChart("aapl").
-      then((response: ApiResponseModel<FinanceChartModel>) => {
+    getQuote("aapl").
+      then((response: ApiResponseModel<QuoteModel>) => {
         if (!response.isSuccess) {
-          console.log("Failed to get chart data")
+          console.log("Failed to get quote model")
         }
         if (response.data !== undefined) {
-          setStockData(response.data)
+          setQuoteData(response.data)
         }
       })
   }, [])
 
   return (
     <ThemedView style={styles.body}>
-      <View style={styles.container}>
-        <ThemedText type="h4">{stockData.meta.symbol}</ThemedText>
-        <ThemedText type="h4">{stockData.meta.previousClose}</ThemedText>
-      </View>
+      <StockHeader quoteData={quoteData} />
+
+      <QuoteChart symbol={"aapl"} />
+      
+      <MarketStats quoteData={quoteData}/>
+        
     </ThemedView>
   );
 }
@@ -36,9 +41,6 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   body: {
     flex: 1,
+    padding: 20,
   },
-  container: {
-    flexDirection: 'column',
-    justifyContent: "center"
-  }
 });
