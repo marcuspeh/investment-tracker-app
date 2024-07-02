@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
   h5: {
     fontSize: 32,
     fontWeight: '600',
-    lineHeight: 23,
+    lineHeight: 33,
   },
   s1: {
     fontSize: 15,

@@ -1,4 +1,4 @@
-import { View, type ViewProps } from 'react-native';
+import { StyleSheet, View, type ViewProps } from 'react-native';
 
 import { TwoColumnTable, TwoColumnTableProps} from '@/components/atoms/TwoColumnTable';
 import { FormatLargeNumber } from '@/util/FormatNumber';
@@ -34,8 +34,16 @@ export function MarketStats({ style, quoteData, lightColor, darkColor, ...otherP
     }
   }
 
-  return <View>
+  return <View style={styles.container}>
     <ThemedText type='h5'>Market statistics</ThemedText>
     <TwoColumnTable data={getMarketStatsData().data}/>
   </View>
 }
+
+
+const styles = StyleSheet.create({
+  container: {
+    marginTop: 10,
+    marginBottom: 10,
+  }
+});

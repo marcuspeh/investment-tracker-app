@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { ThemedText } from './ThemedText';
 
 type RowData = {
@@ -13,16 +13,16 @@ export type TwoColumnTableProps = {
 
 export function TwoColumnTable({ data, ...rest }: TwoColumnTableProps) {
   return (
-    <div style={styles.table}>
+    <View style={styles.table}>
       {
         data.map((prop, i) => 
-          <div key={`${prop.title}-${i}`}  style={styles.row}>
+          <View key={`${prop.title}-${i}`}  style={styles.row}>
               <ThemedText type="s1" style={styles.leftCell}>{prop.title}</ThemedText>
               <ThemedText type="s1" style={styles.rightCell}>{prop.description}</ThemedText>
-          </div>
+          </View>
         )
       }
-    </div>
+    </View>
   );
 }
 
