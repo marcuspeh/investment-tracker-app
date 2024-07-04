@@ -31,7 +31,7 @@ export function QuoteChart({ style, symbol, lightColor, darkColor, ...otherProps
   return (
   <ThemedLineChart
     labels={financeChartData.timestamps}
-    datas={financeChartData.close}
+    prices={financeChartData.close}
   />
   )
 }
