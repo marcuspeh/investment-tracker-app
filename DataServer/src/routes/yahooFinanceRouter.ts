@@ -16,6 +16,10 @@ router.get('/searchSymbol', async (ctx: Context) => {
   await yahooFinanceController.searchSymbols(ctx);
 });
 
+router.get('/getStockDescription/:symbol', async (ctx: Context) => {
+  await yahooFinanceController.getStockDescription(ctx);
+});
+
 
 const yahooFinanceRoutes = router.routes();
 export default yahooFinanceRoutes;

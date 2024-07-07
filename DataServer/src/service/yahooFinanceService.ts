@@ -1,4 +1,4 @@
-import { SearchResultModel, SearchSymbolModel, QuoteModel, FinanceChartModel } from '../dto';
+import { SearchResultModel, SearchSymbolModel, QuoteModel, FinanceChartModel, StockDescription } from '../dto';
 import axios, { AxiosRequestConfig } from 'axios';
 
 
@@ -134,8 +134,22 @@ async function searchSymbolsService(query: string, limit: number): Promise<Searc
   } as SearchResultModel
 }
 
+async function getStockDescriptionService(symbol: string): Promise<StockDescription> {
+  const crumb = await getCrumb()
+  const header = await getHeader()
+  const response = await  axios.get(
+    `https://query1.finance.yahoo.com/v10/finance/quoteSummary/${symbol}?modules=assetProfile&crumb=${crumb}`,
+    header
+  )
+
+  return {
+    longBusinessSummary: response.data?.quoteSummary?.result[0].assetProfile?.longBusinessSummary,
+  } as StockDescription
+}
+
 export {
   getQuoteService,
   getFinanceChartService,
   searchSymbolsService,
+  getStockDescriptionService
 }

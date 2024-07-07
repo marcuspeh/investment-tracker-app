@@ -1,5 +1,5 @@
 import {Context} from 'koa';
-import { getFinanceChartService, getQuoteService, searchSymbolsService } from '../service/yahooFinanceService';
+import { getFinanceChartService, getQuoteService, searchSymbolsService, getStockDescriptionService } from '../service/yahooFinanceService';
 
 async function getFinanceChart(ctx: Context) {
   const symbol: string = ctx.params.symbol || ""
@@ -40,8 +40,20 @@ async function searchSymbols(ctx: Context) {
   ctx.body = await searchSymbolsService(query, limit)
 }
 
+async function getStockDescription(ctx: Context) {
+  
+  const symbol: string = ctx.params.symbol || ""
+  if (!symbol) {
+    ctx.status = 400
+    return;
+  }
+
+  ctx.body = await getStockDescriptionService(symbol)
+}
+
 export default {
   getFinanceChart,
   getQuote,
   searchSymbols,
+  getStockDescription
 };

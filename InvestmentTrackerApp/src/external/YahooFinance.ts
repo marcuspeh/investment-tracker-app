@@ -1,9 +1,10 @@
 import axios from 'axios';
 import { ApiResponseModel } from '@/model/ApiResponseModel';
-import { SearchResultModel, SearchSymbolModel, FinanceChartModel, QuoteModel } from '../dto';
+import { SearchResultModel, SearchSymbolModel, FinanceChartModel, QuoteModel, StockDescription } from '../dto';
 import { mockedFinanceChartData } from '@/mockedData/financeChartData';
 import { mockedQuoteData } from '@/mockedData/quoteData';
 import { mockedSearchSymbolData } from '@/mockedData/searchSymbolData';
+import mockStockDescriptionData from '@/mockedData/stockDescription';
 
 const apiUrl: string = process.env.EXPO_PUBLIC_API_URL || "localhost:3000/api/v1";
 const isDev: boolean = process.env.EXPO_PUBLIC_ENV === 'dev' || false;
@@ -68,8 +69,28 @@ async function searchSymbol(
     });
 }
 
+async function getStockDescription(symbol: string): Promise<ApiResponseModel<StockDescription>> {
+  return axios
+    .get(`${apiUrl}/getStockDescription/${symbol}`)
+    .then(response => {
+      return {
+        isSuccess: true,
+        data: response.data
+      };
+    })
+    .catch(error => {
+      console.log(error);
+
+      return {
+        isSuccess: false,
+        data: isDev ? mockStockDescriptionData : undefined
+      };
+    });
+}
+
 export {
   getFinanceChart,
   searchSymbol,
   getQuote,
+  getStockDescription
 }
