@@ -15,7 +15,12 @@ export const Colors = {
     graphLineColor: "#1A38B2",
     graphGridColor: "#00000055",
 
-    componentBackgroundColor: "#6482FF"
+    componentBackgroundColor: "#6482FF",
+
+    buttonInactiveBackground: "#DDDDDD",
+    buttonInactiveText: "#505050",
+    buttonActiveBackground: "#6482FF",
+    buttonActiveText: "#1A38B2",
   },
   dark: {
     text: '#ECEDEE',
@@ -33,6 +38,11 @@ export const Colors = {
     graphLineColor: "#1A38B2",
     graphGridColor: "#FFFFFF55",
 
-    componentBackgroundColor: "#6482FF"
+    componentBackgroundColor: "#6482FF",
+
+    buttonInactiveBackground: "#DDDDDD",
+    buttonInactiveText: "#505050",
+    buttonActiveBackground: "#6482FF",
+    buttonActiveText: "#1A38B2",
   },
 };

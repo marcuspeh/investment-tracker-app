@@ -5,7 +5,7 @@ import { useThemeColor } from '@/hooks/useThemeColor';
 export type ThemedTextProps = TextProps & {
   lightColor?: string;
   darkColor?: string;
-  type?: 'default' | 'h4' | 'h5'  | 's1' | 's2' | 'l1' | 'l2' | 'l3' | 'p1' | 'p2' | 'b1' | 'b2';
+  type?: 'default' | 'h4' | 'h5'  | 's1' | 's2' | 'l1' | 'l2' | 'l3' | 'p1' | 'p2' | 'b1' | 'b2' | 'b3';
 };
 
 export function ThemedText({
@@ -33,6 +33,7 @@ export function ThemedText({
         type === 'p2' ? styles.p2 : undefined,
         type === 'b1' ? styles.b1 : undefined,
         type === 'b2' ? styles.b2 : undefined,
+        type === 'b3' ? styles.b3 : undefined,
         style,
       ]}
       {...rest}
@@ -93,6 +94,11 @@ const styles = StyleSheet.create({
   },
   b2: {
     fontSize: 14,
+    fontWeight: 'semibold',
+    lineHeight: 24,
+  },
+  b3: {
+    fontSize: 12,
     fontWeight: 'semibold',
     lineHeight: 24,
   }
