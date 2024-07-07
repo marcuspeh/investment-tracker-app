@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { ApiResponseModel } from '@/model/ApiResponseModel';
-import { SearchResultModel, SearchSymbolModel, FinanceChartModel, QuoteModel, StockDescription } from '../dto';
+import { SearchResultModel, SearchSymbolModel, FinanceChartModel, QuoteModel, StockDescriptionModel } from '../dto';
 import { mockedFinanceChartData } from '@/mockedData/financeChartData';
 import { mockedQuoteData } from '@/mockedData/quoteData';
 import { mockedSearchSymbolData } from '@/mockedData/searchSymbolData';
@@ -69,7 +69,7 @@ async function searchSymbol(
     });
 }
 
-async function getStockDescription(symbol: string): Promise<ApiResponseModel<StockDescription>> {
+async function getStockDescription(symbol: string): Promise<ApiResponseModel<StockDescriptionModel>> {
   return axios
     .get(`${apiUrl}/getStockDescription/${symbol}`)
     .then(response => {

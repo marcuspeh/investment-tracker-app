@@ -17,7 +17,7 @@ export function QuoteChart({ style, symbol, lightColor, darkColor, ...otherProps
   const [financeChartData, setFinanceChartData] = useState<FinanceChartModel>(mockedFinanceChartData)
 
   useEffect(() => {
-    getFinanceChart("symbol", "1m").
+    getFinanceChart(symbol, "1m").
       then((response: ApiResponseModel<FinanceChartModel>) => {
         if (!response.isSuccess) {
           console.log("Failed to get quote model")

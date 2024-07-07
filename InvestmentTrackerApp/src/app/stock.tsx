@@ -9,6 +9,7 @@ import { mockedQuoteData } from '@/mockedData/quoteData';
 import { MarketStats } from '@/components/stockDetails/MarketStats';
 import { StockHeader } from '@/components/stockDetails/StockHeader';
 import { QuoteChart } from '@/components/stockDetails/QuoteChart';
+import { StockDescription } from '@/components/stockDetails/StockDescription';
 
 export default function HomeScreen() {
   const [quoteData, setQuoteData] = useState<QuoteModel>(mockedQuoteData)
@@ -32,6 +33,8 @@ export default function HomeScreen() {
       <QuoteChart symbol={"aapl"} />
       
       <MarketStats quoteData={quoteData}/>
+
+      <StockDescription symbol={"aapl"} displayName={quoteData.displayName}/>
         
     </ThemedView>
   );

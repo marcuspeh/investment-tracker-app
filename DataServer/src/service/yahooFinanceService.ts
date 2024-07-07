@@ -1,4 +1,4 @@
-import { SearchResultModel, SearchSymbolModel, QuoteModel, FinanceChartModel, StockDescription } from '../dto';
+import { SearchResultModel, SearchSymbolModel, QuoteModel, FinanceChartModel, StockDescriptionModel } from '../dto';
 import axios, { AxiosRequestConfig } from 'axios';
 
 
@@ -134,7 +134,7 @@ async function searchSymbolsService(query: string, limit: number): Promise<Searc
   } as SearchResultModel
 }
 
-async function getStockDescriptionService(symbol: string): Promise<StockDescription> {
+async function getStockDescriptionService(symbol: string): Promise<StockDescriptionModel> {
   const crumb = await getCrumb()
   const header = await getHeader()
   const response = await  axios.get(
@@ -144,7 +144,7 @@ async function getStockDescriptionService(symbol: string): Promise<StockDescript
 
   return {
     longBusinessSummary: response.data?.quoteSummary?.result[0].assetProfile?.longBusinessSummary,
-  } as StockDescription
+  } as StockDescriptionModel
 }
 
 export {
