@@ -1,7 +1,7 @@
 import { type ViewProps } from 'react-native';
 import { useEffect, useState } from 'react';
 
-import { FinanceChartModel, QuoteModel } from '@/dto';
+import { FinanceChartModel } from '@/dto';
 import { ThemedLineChart } from '../atoms/ThemedLineChart';
 import { getFinanceChart } from '@/external/YahooFinance';
 import { mockedFinanceChartData } from '@/mockedData/financeChartData';
