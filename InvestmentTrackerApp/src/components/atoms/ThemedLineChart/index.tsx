@@ -1,8 +1,6 @@
 import { StyleSheet, View, type ViewProps } from 'react-native';
 import { CartesianChart, useChartPressState } from "victory-native";
 import { useDerivedValue } from "react-native-reanimated";
-import { useEffect } from 'react';
-import * as Haptics from "expo-haptics";
 
 import { useThemeColor } from '@/hooks/useThemeColor';
 import spacemono from "../../../../assets/fonts/SpaceMono-Regular.ttf";
@@ -25,12 +23,6 @@ export function ThemedLineChart({ style, labels, prices, lightColor, darkColor, 
 
   const font = useFont(spacemono, 12)
   const { state, isActive } = useChartPressState({ x: 0, y: { "price": 0 } });
-
-  useEffect(() => {
-    if (isActive) {
-        Haptics.selectionAsync().catch(() => null);
-    }
-  }, [isActive]);
 
   const isRise = useDerivedValue(() => {
     if (!isActive) {
