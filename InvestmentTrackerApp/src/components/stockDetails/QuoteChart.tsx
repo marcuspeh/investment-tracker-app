@@ -41,7 +41,7 @@ export function QuoteChart({ style, symbol, lightColor, darkColor, ...otherProps
   }, [chartDuration])
 
   return (
-    <>
+    <View style={styles.container}>
       <ThemedLineChart
         labels={financeChartData.timestamps}
         prices={financeChartData.close}
@@ -71,11 +71,15 @@ export function QuoteChart({ style, symbol, lightColor, darkColor, ...otherProps
           ))
         }        
       </View>
-    </>
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
+  container: {
+    marginTop: 10,
+    marginBottom: 30,
+  },
   buttonContainer: {
     display: "flex",
     flexDirection: "row",

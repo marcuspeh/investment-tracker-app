@@ -44,6 +44,6 @@ export function MarketStats({ style, quoteData, lightColor, darkColor, ...otherP
 const styles = StyleSheet.create({
   container: {
     marginTop: 10,
-    marginBottom: 10,
+    marginBottom: 30,
   }
 });

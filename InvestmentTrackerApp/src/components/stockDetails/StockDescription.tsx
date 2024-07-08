@@ -33,7 +33,7 @@ export function StockDescription({ style, symbol, displayName, lightColor, darkC
   }, [])
 
   return (
-  <View style={{...styles.mainInfo, backgroundColor: backgroundColor}}>
+  <View style={{...styles.container, backgroundColor: backgroundColor}}>
     <ThemedText type="h5" style={{...styles.text, ...styles.header, color: headerColor}}>About {displayName}</ThemedText>
     <ThemedText type="p1">{financeChartData.longBusinessSummary || "Description curently not available."}</ThemedText>
   </View>
@@ -41,9 +41,10 @@ export function StockDescription({ style, symbol, displayName, lightColor, darkC
 }
 
 const styles = StyleSheet.create({
-  mainInfo: {
+  container: {
     padding: 20,
     borderRadius: 10,
+    marginBottom: 50,
   },
   text: {
     paddingVertical: 3,

@@ -16,7 +16,7 @@ export function StockHeader({ style, quoteData, lightColor, darkColor, ...otherP
   const headerColor = useThemeColor({ light: lightColor, dark: darkColor }, 'darkText');
 
   return (
-  <View style={styles.mainInfo}>
+  <View style={styles.container}>
     <ThemedText type="h4" style={{...styles.text, color: headerColor}}>{quoteData.displayName}</ThemedText>
     <ThemedText type="h4" style={[styles.text, styles.price]}>{ParsePrice(quoteData.regularMarketPrice)}</ThemedText>
     <PriceChangeLabel change={quoteData.regularMarketChange} percent={quoteData.regularMarketChangePercent} />
@@ -25,11 +25,11 @@ export function StockHeader({ style, quoteData, lightColor, darkColor, ...otherP
 }
 
 const styles = StyleSheet.create({
-  mainInfo: {
+  container: {
     display: "flex",
     flexDirection: 'column',
     alignItems: "center",
-    marginBottom: 20,
+    marginBottom: 30,
   },
   text: {
     display: "flex",
