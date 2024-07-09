@@ -67,12 +67,12 @@ map Transaction {
     financial_instrucment_id => FK
     
     quantity => number
-    price_per_piece => number
+    amount_per_unit => number
     comission => number
     is_commission_percentage => boolean
     transaction_type =>
     transaction_date => date
-    notes => string
+    note => string
 }
 Transaction::financial_instrucment_id --> FinancialInstrument
 Transaction::transaction_type --> TransactionType
