@@ -11,6 +11,7 @@ import { StockHeader } from '@/components/stockDetails/StockHeader';
 import { QuoteChart } from '@/components/stockDetails/QuoteChart';
 import { StockDescription } from '@/components/stockDetails/StockDescription';
 import { ThemedScrollView } from '@/components/atoms/ThemedScrollView';
+import { HoldingData } from '@/components/stockDetails/HoldingData';
 
 export default function HomeScreen() {
   const [quoteData, setQuoteData] = useState<QuoteModel>(mockedQuoteData)
@@ -31,6 +32,7 @@ export default function HomeScreen() {
     <ThemedScrollView style={styles.body}>
       <StockHeader quoteData={quoteData} />
       <QuoteChart symbol={"aapl"} />
+      <HoldingData />
       <MarketStats quoteData={quoteData}/>
       <StockDescription symbol={"aapl"} displayName={quoteData.displayName}/>
     </ThemedScrollView>

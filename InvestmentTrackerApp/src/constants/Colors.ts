@@ -22,7 +22,7 @@ export const Colors = {
     buttonActiveBackground: "#6482FF",
     buttonActiveText: "#1A38B2",
 
-    borderColor: "#ABABAB",
+    borderColor: "#0A0A0A",
   },
   dark: {
     text: '#ECEDEE',

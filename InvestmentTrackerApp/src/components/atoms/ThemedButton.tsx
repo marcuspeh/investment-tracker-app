@@ -9,9 +9,10 @@ export type ThemedButtonProps = {
   label: string
   width: DimensionValue
   height: DimensionValue
+  labelType: 'b1' | 'b2' | 'b3'
 };
 
-export function ThemedButton({ buttonOnPress, backgroundColor, textColor, label, width, height}: ThemedButtonProps) {
+export function ThemedButton({ buttonOnPress, backgroundColor, textColor, label, width, height, labelType }: ThemedButtonProps) {
   return (
     <Pressable 
       onPress={buttonOnPress}
@@ -23,7 +24,7 @@ export function ThemedButton({ buttonOnPress, backgroundColor, textColor, label,
       }}
     >
       <ThemedText
-        type="b3"
+        type={labelType}
         style={{
           ...styles.buttonText,
           color: textColor,

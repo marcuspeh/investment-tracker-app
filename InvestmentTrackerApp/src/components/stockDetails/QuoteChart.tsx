@@ -56,6 +56,7 @@ export function QuoteChart({ style, symbol, lightColor, darkColor, ...otherProps
               backgroundColor={duration === chartDuration ? buttonActiveBackground : buttonInactiveBackground}
               textColor={duration === chartDuration ? buttonActiveText : buttonInactiveText}
               label={duration === 'max' ? duration : duration.slice(0, 2)}
+              labelType={'b3'}
               width={"10%"}
               height={25}
             />
