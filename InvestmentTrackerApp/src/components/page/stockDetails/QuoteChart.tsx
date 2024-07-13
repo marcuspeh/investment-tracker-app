@@ -3,12 +3,12 @@ import { useEffect, useState } from 'react';
 
 import { useThemeColor } from '@/hooks/useThemeColor';
 import { FinanceChartModel } from '@/dto';
-import { ThemedLineChart } from '../atoms/ThemedLineChart';
+import { ThemedLineChart } from '../../atoms/ThemedLineChart';
 import { getFinanceChart } from '@/external/YahooFinance';
 import { mockedFinanceChartData } from '@/mockedData/financeChartData';
 import { ApiResponseModel } from '@/model/ApiResponseModel';
-import { ThemedText } from '../atoms/ThemedText';
-import { ThemedButton } from '../atoms/ThemedButton';
+import { ThemedText } from '../../atoms/ThemedText';
+import { ThemedButton } from '../../atoms/ThemedButton';
 
 export type QuoteChartProps = ViewProps & {
   symbol: string;

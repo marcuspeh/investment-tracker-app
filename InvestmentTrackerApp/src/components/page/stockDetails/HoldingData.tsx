@@ -3,8 +3,7 @@ import { StyleSheet, View, type ViewProps } from 'react-native';
 import { TwoColumnTable, TwoColumnTableProps} from '@/components/atoms/TwoColumnTable';
 import { FormatLargeNumber } from '@/util/FormatNumber';
 import { useThemeColor } from '@/hooks/useThemeColor';
-import { ThemedText } from '../atoms/ThemedText';
-import { ThemedButton } from '../atoms/ThemedButton';
+import { ThemedButton } from '../../atoms/ThemedButton';
 
 export type HoldingDataProps = ViewProps & {
   lightColor?: string;

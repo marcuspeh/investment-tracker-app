@@ -2,7 +2,7 @@ import { StyleSheet, View, type ViewProps } from 'react-native';
 import { useState, useEffect } from 'react'
 
 import { useThemeColor } from '@/hooks/useThemeColor';
-import { ThemedText } from '../atoms/ThemedText';
+import { ThemedText } from '../../atoms/ThemedText';
 import { StockDescriptionModel } from '@/dto';
 import mockStockDescriptionData from '@/mockedData/stockDescription';
 import { getStockDescription } from '@/external/YahooFinance';

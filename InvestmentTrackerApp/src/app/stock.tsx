@@ -1,17 +1,16 @@
 import { StyleSheet } from 'react-native';
 import { useEffect, useState } from 'react';
 
-import { ThemedView } from "@/components/atoms/ThemedView";
 import { getQuote } from '@/external/YahooFinance'
 import { ApiResponseModel } from '@/model/ApiResponseModel';
 import { QuoteModel } from '@/dto';
 import { mockedQuoteData } from '@/mockedData/quoteData';
-import { MarketStats } from '@/components/stockDetails/MarketStats';
-import { StockHeader } from '@/components/stockDetails/StockHeader';
-import { QuoteChart } from '@/components/stockDetails/QuoteChart';
-import { StockDescription } from '@/components/stockDetails/StockDescription';
+import { MarketStats } from '@/components/page/stockDetails/MarketStats';
+import { StockHeader } from '@/components/page/stockDetails/StockHeader';
+import { QuoteChart } from '@/components/page/stockDetails/QuoteChart';
+import { StockDescription } from '@/components/page/stockDetails/StockDescription';
 import { ThemedScrollView } from '@/components/atoms/ThemedScrollView';
-import { HoldingData } from '@/components/stockDetails/HoldingData';
+import { HoldingData } from '@/components/page/stockDetails/HoldingData';
 
 export default function HomeScreen() {
   const [quoteData, setQuoteData] = useState<QuoteModel>(mockedQuoteData)

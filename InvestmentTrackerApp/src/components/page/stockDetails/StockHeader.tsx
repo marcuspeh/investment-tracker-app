@@ -2,9 +2,9 @@ import { StyleSheet, View, type ViewProps } from 'react-native';
 
 import { useThemeColor } from '@/hooks/useThemeColor';
 import { QuoteModel } from '@/dto';
-import { ThemedText } from '../atoms/ThemedText';
+import { ThemedText } from '../../atoms/ThemedText';
 import { ParsePrice } from '@/util/FormatNumber';
-import { PriceChangeLabel } from '../atoms/PriceChange';
+import { PriceChangeLabel } from '../../atoms/PriceChange';
 
 export type StockHeaderProps = ViewProps & {
   quoteData: QuoteModel,

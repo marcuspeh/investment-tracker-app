@@ -3,7 +3,7 @@ import { StyleSheet, View, type ViewProps } from 'react-native';
 import { TwoColumnTable, TwoColumnTableProps} from '@/components/atoms/TwoColumnTable';
 import { FormatLargeNumber } from '@/util/FormatNumber';
 import { QuoteModel } from '@/dto';
-import { ThemedText } from '../atoms/ThemedText';
+import { ThemedText } from '../../atoms/ThemedText';
 
 export type MarketStatsProps = ViewProps & {
   quoteData: QuoteModel,
