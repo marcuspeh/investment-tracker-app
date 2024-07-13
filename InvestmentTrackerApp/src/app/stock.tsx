@@ -28,7 +28,7 @@ export default function HomeScreen() {
   }, [])
 
   return (
-    <ThemedScrollView style={styles.body}>
+    <ThemedScrollView>
       <StockHeader quoteData={quoteData} />
       <QuoteChart symbol={"aapl"} />
       <HoldingData />
@@ -37,10 +37,3 @@ export default function HomeScreen() {
     </ThemedScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  body: {
-    flex: 1,
-    padding: 20,
-  },
-});

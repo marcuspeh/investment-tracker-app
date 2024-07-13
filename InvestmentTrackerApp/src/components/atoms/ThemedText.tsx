@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     fontWeight: 'semibold',
   },
   l2: {
-    fontSize: 10,
+    fontSize: 13,
     lineHeight: 16,
     fontWeight: 'semibold',
   },

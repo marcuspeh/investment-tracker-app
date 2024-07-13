@@ -1,6 +1,7 @@
 export const Colors = {
   light: {
     text: '#11181C',
+    lightColor: "#555555",
     darkText: '#1A38B2',
     background: '#fff',
 
@@ -26,6 +27,7 @@ export const Colors = {
   },
   dark: {
     text: '#ECEDEE',
+    lightColor: "#555555",
     darkText: '#1A38B2',
     background: '#151718',
 

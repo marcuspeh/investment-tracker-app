@@ -15,8 +15,7 @@ export type PriceChangeLabelProps = ViewProps & {
 export function PriceChangeLabel({ style, change, percent, lightColor, darkColor, ...otherProps }: PriceChangeLabelProps) {
   let backgroundColor = ""
   let textColor = ""
-  let iconName = "chevron-up"
-  let iconColor = "green"
+  let iconName: "chevron-up" | "chevron-down" = "chevron-up"
   if (change > 0) {  
     backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'increaseBackgroundColor')
     textColor = useThemeColor({ light: lightColor, dark: darkColor }, 'increaseText')
@@ -24,7 +23,6 @@ export function PriceChangeLabel({ style, change, percent, lightColor, darkColor
     backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'decreaseBackgroundColor')
     textColor = useThemeColor({ light: lightColor, dark: darkColor }, 'decreaseText')
     iconName = "chevron-down"
-    iconColor = "red"
     change = -change
     percent = -percent
   } else {
@@ -35,8 +33,8 @@ export function PriceChangeLabel({ style, change, percent, lightColor, darkColor
 
   return (
     <View style={[{ backgroundColor }, styles.container, style]} >
-      <Ionicons name={iconName} size={16} color={iconColor}/>
-      <ThemedText type='s1' style={styles.text}>
+      <Ionicons name={iconName} size={16} color={textColor}/>
+      <ThemedText type='s1' style={[styles.text, { color: textColor }]}>
         {ParsePrice(change)} ({percent.toFixed(3)}%)
       </ThemedText>
     </View>

@@ -17,8 +17,8 @@ export function TwoColumnTable({ data, ...rest }: TwoColumnTableProps) {
       {
         data.map((prop, i) => 
           <View key={`${prop.title}-${i}`}  style={styles.row}>
-              <ThemedText type="s1" style={styles.leftCell}>{prop.title}</ThemedText>
-              <ThemedText type="s1" style={styles.rightCell}>{prop.description}</ThemedText>
+            <ThemedText type="s1" style={styles.leftCell}>{prop.title}</ThemedText>
+            <ThemedText type="s1" style={styles.rightCell}>{prop.description}</ThemedText>
           </View>
         )
       }
