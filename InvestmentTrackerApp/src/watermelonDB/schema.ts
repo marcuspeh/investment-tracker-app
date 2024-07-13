@@ -6,7 +6,7 @@ export const schema = appSchema({
     tableSchema({
       name: 'portfolio',
       columns: [
-        { name: 'name', type: 'string' },
+        { name: 'title', type: 'string' },
         { name: 'description', type: 'string' },
         { name: 'created_at', type: 'number' },
         { name: 'updated_at', type: 'number' },
@@ -30,8 +30,8 @@ export const schema = appSchema({
       name: 'transaction',
       columns: [
         { name: 'financial_instrument_id', type: 'string' },
-        { name: 'quantity', type: 'string' },
-        { name: 'amount_per_unit', type: 'string' },
+        { name: 'quantity', type: 'number' },
+        { name: 'amount_per_unit', type: 'number' },
         { name: 'commission', type: 'number', isOptional: true },
         { name: 'is_commision_percentage', type: 'boolean' },
         { name: 'transaction_type', type: 'number' },

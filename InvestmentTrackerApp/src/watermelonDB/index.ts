@@ -33,3 +33,7 @@ const database = new Database({
     Transaction
   ],
 })
+
+export {
+  database
+}

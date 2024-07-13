@@ -8,16 +8,16 @@ export default class FinancialInstrument extends Model {
     transactions: { type: 'has_many', key: 'financial_instrument_id' }
   }
 
-  @text('symbol') symbol
-  @text('short_name') shortName
-  @text('asset_type') assetType
-  @text('exchange') exchange
-  @text('country') country
-  @text('currency') currency
-  
+  @text('symbol') symbol: string | undefined
+  @text('short_name') shortName: string | undefined
+  @text('asset_type') assetType: string | undefined
+  @text('exchange') exchange: string | undefined
+  @text('country') country: string | undefined
+  @text('currency') currency: string | undefined
+
   @relation('portfolio', 'portfolio_id') portfolio
   @children('transactions') transactions
 
-  @readonly @date('created_at') createdAt
-  @readonly @date('updated_at') updatedAt
+  @readonly @date('created_at') createdAt!: Date
+  @readonly @date('updated_at') updatedAt!: Date
 }
