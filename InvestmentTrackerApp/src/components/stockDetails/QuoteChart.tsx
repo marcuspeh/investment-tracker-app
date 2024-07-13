@@ -8,9 +8,10 @@ import { getFinanceChart } from '@/external/YahooFinance';
 import { mockedFinanceChartData } from '@/mockedData/financeChartData';
 import { ApiResponseModel } from '@/model/ApiResponseModel';
 import { ThemedText } from '../atoms/ThemedText';
+import { ThemedButton } from '../atoms/ThemedButton';
 
 export type QuoteChartProps = ViewProps & {
-  symbol: string,
+  symbol: string;
 
   lightColor?: string;
   darkColor?: string;
@@ -49,27 +50,17 @@ export function QuoteChart({ style, symbol, lightColor, darkColor, ...otherProps
       <View style={styles.buttonContainer}>
         {
           ChartDurationList.map((duration, index) => (
-            <Pressable 
-              key={index} 
-              onPress={() => setChartDuration(duration)}
-              style={{
-                ...styles.button,
-                backgroundColor: duration === chartDuration ? buttonActiveBackground : buttonInactiveBackground,
-              }}
-            >
-              <ThemedText
-              type="b3"
-                style={{
-                  ...styles.buttonText,
-                  backgroundColor: duration === chartDuration ? buttonActiveBackground : buttonInactiveBackground,
-                  color: duration === chartDuration ? buttonActiveText : buttonInactiveText,
-                }}
-              > 
-                {duration === 'max' ? duration : duration.slice(0, 2)} 
-              </ThemedText>
-            </Pressable>
+            <ThemedButton 
+              key={`chart-button-${index}`}
+              buttonOnPress={() => setChartDuration(duration)}
+              backgroundColor={duration === chartDuration ? buttonActiveBackground : buttonInactiveBackground}
+              textColor={duration === chartDuration ? buttonActiveText : buttonInactiveText}
+              label={duration === 'max' ? duration : duration.slice(0, 2)}
+              width={"10%"}
+              height={25}
+            />
           ))
-        }        
+        } 
       </View>
     </View>
   )

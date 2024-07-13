@@ -21,6 +21,8 @@ export const Colors = {
     buttonInactiveText: "#505050",
     buttonActiveBackground: "#6482FF",
     buttonActiveText: "#1A38B2",
+
+    borderColor: "#ABABAB",
   },
   dark: {
     text: '#ECEDEE',
@@ -44,5 +46,7 @@ export const Colors = {
     buttonInactiveText: "#505050",
     buttonActiveBackground: "#6482FF",
     buttonActiveText: "#1A38B2",
+    
+    borderColor: "#ABABAB",
   },
 };
