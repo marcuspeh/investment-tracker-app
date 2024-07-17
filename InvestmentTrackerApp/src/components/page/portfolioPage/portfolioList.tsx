@@ -16,6 +16,22 @@ export type PortfolioListProps = ViewProps & {
 export function PortfolioList({ portfolios, lightColor, darkColor, ...otherProps }: PortfolioListProps) {
   const textColor = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
 
+  const getOverview = (): Portfolio => {
+    const result = {
+      id: "0",
+      title: "Overall Investments",
+      description: "All your portfolios in one",
+    } as Portfolio
+
+    for (const portfolio of portfolios) {
+      // do something here
+    }
+
+    return result
+  }
+
+  const overviewPortfolio = getOverview();
+
   return <View style={styles.container}>
 		<View style={styles.labelRow}>
 			<ThemedText type='h5' style={styles.label}>
@@ -25,6 +41,7 @@ export function PortfolioList({ portfolios, lightColor, darkColor, ...otherProps
 		</View>
 		
 		<View>
+      <PortfolioRow portfolio={overviewPortfolio} />
       {
         portfolios.map((portfolio) => (
           <PortfolioRow key={portfolio.id} portfolio={portfolio} />
