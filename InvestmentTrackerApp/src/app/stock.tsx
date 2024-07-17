@@ -12,7 +12,7 @@ import { StockDescription } from '@/components/page/stockDetails/StockDescriptio
 import { ThemedScrollView } from '@/components/atoms/ThemedScrollView';
 import { HoldingData } from '@/components/page/stockDetails/HoldingData';
 
-export default function HomeScreen() {
+export default function StockScreen() {
   const [quoteData, setQuoteData] = useState<QuoteModel>(mockedQuoteData)
 
   useEffect(() => {
