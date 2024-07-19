@@ -3,9 +3,9 @@ import { StyleSheet } from 'react-native';
 
 import { ThemedScrollView } from "@/components/atoms/ThemedScrollView";
 import { InternalLink } from "@/components/atoms/InternalLink";
-import { TopBar } from "@/components/page/portfolioPage/TopBar";
-import { InvestmentSummary } from "@/components/page/portfolioPage/InvestmentSummary";
-import { PortfolioList } from "@/components/page/portfolioPage/portfolioList";
+import { TopBar } from "@/components/page/portfolioList/TopBar";
+import { InvestmentSummary } from "@/components/page/portfolioList/InvestmentSummary";
+import { PortfolioList } from "@/components/page/portfolioList/portfolioList";
 import Portfolio from "@/watermelonDB/Portfolio";
 
 export default function HomeScreen() {
