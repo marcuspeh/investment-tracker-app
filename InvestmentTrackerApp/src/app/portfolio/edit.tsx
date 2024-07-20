@@ -5,6 +5,7 @@ export default function PortfolioEditScreen() {
   return (
     <ThemedScrollView>
       <PortfolioForm afterOperation={()=>{}}/>
+
     </ThemedScrollView>
   );
 }

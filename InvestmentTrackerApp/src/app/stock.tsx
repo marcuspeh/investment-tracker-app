@@ -1,4 +1,3 @@
-import { StyleSheet } from 'react-native';
 import { useEffect, useState } from 'react';
 
 import { getQuote } from '@/external/YahooFinance'

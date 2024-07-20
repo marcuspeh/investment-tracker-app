@@ -15,14 +15,9 @@ export default class Portfolio extends Model {
   @readonly @date('created_at') createdAt!: Date
   @readonly @date('updated_at') updatedAt!: Date
 
-  @writer async updateTitle(title: string) {
+  @writer async updatePortfolio(title: string, description: string) {
     await this.update(portfolio => {
       portfolio.title = title
-    })
-  }
-
-  @writer async updateDescription(description: string) {
-    await this.update(portfolio => {
       portfolio.description = description
     })
   }

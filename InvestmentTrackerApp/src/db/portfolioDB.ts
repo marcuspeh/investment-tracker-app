@@ -16,22 +16,22 @@ async function createPorfolio(title: string, description: string): Promise<Portf
   return portfolio
 }
 
-async function updateTitle(id: string, newTitle: string): Promise<Portfolio> {
+async function updatePortfolio(id: string, newTitle: string, newDescription: string): Promise<Portfolio> {
   const portfolio =  await portfolioDB.find(id)
-  portfolio.updateTitle(newTitle)
+  portfolio.updatePortfolio(newTitle, newDescription)
 
   return portfolio // TODO: double check if portfolio returned is updated
 }
 
-
-async function updateDescription(id: string, newDescription: string): Promise<Portfolio> {
-  const portfolio =  await portfolioDB.find(id)
-  portfolio.updateDescription(newDescription)
-
-  return portfolio // TODO: double check if portfolio returned is updated
-}
 
 async function deletePortfolio(id: string): Promise<void> {
   const portfolio = await portfolioDB.find(id)
   portfolio.markAsDeleted()
+}
+
+export {
+  getPortfolio,
+  createPorfolio,
+  updatePortfolio,
+  deletePortfolio,
 }

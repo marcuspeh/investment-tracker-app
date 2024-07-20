@@ -1,5 +1,4 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet } from 'react-native';
 
 import { ThemedScrollView } from "@/components/atoms/ThemedScrollView";
 import { InternalLink } from "@/components/atoms/InternalLink";
