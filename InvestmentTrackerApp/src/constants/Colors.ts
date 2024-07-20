@@ -3,6 +3,7 @@ export const Colors = {
     text: '#11181C',
     lightColor: "#555555",
     darkText: '#1A38B2',
+    errorText: "#FF0000",
     background: '#fff',
 
     neutralBackgroundColor: '#ABABAB',
@@ -24,11 +25,13 @@ export const Colors = {
     buttonActiveText: "#1A38B2",
 
     borderColor: "#0A0A0A",
+    errorBorderColor: "#FF0000",
   },
   dark: {
     text: '#ECEDEE',
     lightColor: "#555555",
     darkText: '#1A38B2',
+    errorText: "#FF0000",
     background: '#151718',
 
     neutralBackgroundColor: '#ABABAB',
@@ -50,5 +53,6 @@ export const Colors = {
     buttonActiveText: "#1A38B2",
     
     borderColor: "#ABABAB",
+    errorBorderColor: "#FF0000",
   },
 };

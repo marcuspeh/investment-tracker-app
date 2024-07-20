@@ -5,14 +5,16 @@ import { useThemeColor } from '@/hooks/useThemeColor';
 export type ThemedTextInputProps = TextInputProps & {
   width: DimensionValue
   height: DimensionValue
+  hasError: boolean
 
   lightColor?: string;
   darkColor?: string;
 };
 
-export function ThemedTextInput({ lightColor, darkColor, height, width, ...rest }: ThemedTextInputProps) {
-  const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
-  
+export function ThemedTextInput({ lightColor, darkColor, height, width, hasError, ...rest }: ThemedTextInputProps) {
+  const textColor = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
+  const errorBorderColor = useThemeColor({ light: lightColor, dark: darkColor }, 'errorBorderColor');
+
   return (
     <TextInput
       style={[
@@ -20,10 +22,11 @@ export function ThemedTextInput({ lightColor, darkColor, height, width, ...rest 
         {
           width: width,
           height: height,
-          color: color,
+          color: textColor,
+          borderColor: hasError ? errorBorderColor : "gray",
         }
       ]}
-      placeholderTextColor={`${color}88`}
+      placeholderTextColor={`${textColor}88`}
       {...rest}
     />
   );
@@ -31,7 +34,6 @@ export function ThemedTextInput({ lightColor, darkColor, height, width, ...rest 
 
 const styles = StyleSheet.create({
   input: {
-    borderColor: "gray",
     width: "100%",
     borderWidth: 1,
     borderRadius: 10,
