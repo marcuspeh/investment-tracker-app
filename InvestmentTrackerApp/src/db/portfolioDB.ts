@@ -1,5 +1,5 @@
-import { database } from "@/watermelonDB";
-import Portfolio from "@/watermelonDB/Portfolio";
+import { database } from "@/watermelon";
+import Portfolio from "@/watermelon/Portfolio";
 
 const portfolioDB = database.get<Portfolio>("portfolio")
 

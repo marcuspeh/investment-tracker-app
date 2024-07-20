@@ -3,7 +3,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 import { ThemedText } from '@/components/atoms/ThemedText';
 import { useThemeColor } from '@/hooks/useThemeColor';
-import Portfolio from '@/watermelonDB/Portfolio';
+import Portfolio from '@/watermelon/Portfolio';
 
 export type PortfolioRowProps = ViewProps & {
 	portfolio: Portfolio,

@@ -1,6 +1,6 @@
 import { StyleSheet, View } from 'react-native';
 
-import Portfolio from '@/watermelonDB/Portfolio';
+import Portfolio from '@/watermelon/Portfolio';
 import { useState } from 'react';
 import { FormRow } from './FormRow';
 import { createPorfolio, updatePortfolio } from '@/db/portfolioDB';
