@@ -7,6 +7,11 @@ async function getPortfolio(): Promise<Portfolio[]> {
   return await portfolioDB.query().fetch()
 }
 
+async function getPortfolioByID(id: string): Promise<Portfolio> {
+  return await portfolioDB.find(id)
+}
+
+
 async function createPorfolio(title: string, description: string): Promise<Portfolio> {
   const portfolio = await portfolioDB.create((portfolio: Portfolio) => {
     portfolio.title = title;
@@ -31,6 +36,7 @@ async function deletePortfolio(id: string): Promise<void> {
 
 export {
   getPortfolio,
+  getPortfolioByID,
   createPorfolio,
   updatePortfolio,
   deletePortfolio,

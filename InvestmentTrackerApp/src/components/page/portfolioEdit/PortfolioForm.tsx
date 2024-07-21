@@ -1,7 +1,7 @@
 import { StyleSheet, View } from 'react-native';
 
 import Portfolio from '@/watermelon/Portfolio';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FormRow } from './FormRow';
 import { createPorfolio, updatePortfolio } from '@/db/portfolioDB';
 import { router } from 'expo-router';
@@ -10,13 +10,13 @@ import { useThemeColor } from '@/hooks/useThemeColor';
 
 export type PortfolioFormProps =  {
 	portfolio?: Portfolio,
-  afterOperation: () => void,
 
   lightColor?: string;
   darkColor?: string;
 };
 
-export function PortfolioForm({ portfolio, afterOperation, lightColor, darkColor }: PortfolioFormProps) {
+export function PortfolioForm({ portfolio, lightColor, darkColor }: PortfolioFormProps) {
+  console.log(portfolio)
   const buttonActiveBackground = useThemeColor({ light: lightColor, dark: darkColor }, 'buttonActiveBackground');
   const buttonActiveText = useThemeColor({ light: lightColor, dark: darkColor }, 'buttonActiveText');
 
@@ -26,6 +26,11 @@ export function PortfolioForm({ portfolio, afterOperation, lightColor, darkColor
   const [description, setDescription] = useState<string>(portfolio?.description || "")
   
   const titleEmptyErrorMsg: string = "Title is required"
+
+  useEffect(() => {    
+    setTitle(portfolio?.title || "")
+    setDescription(portfolio?.description || "")
+  }, [portfolio])
 
   const validateInput = (): boolean => {
     if (title.length === 0) {
@@ -73,7 +78,6 @@ export function PortfolioForm({ portfolio, afterOperation, lightColor, darkColor
       return
     }
 
-    afterOperation()
     router.back()
   }
 

@@ -5,6 +5,7 @@ import { ThemedText } from '@/components/atoms/ThemedText';
 import { useThemeColor } from '@/hooks/useThemeColor';
 import Portfolio from '@/watermelon/Portfolio';
 import { PortfolioRow } from './portfolioRow';
+import { InternalLink } from '@/components/atoms/InternalLink';
 
 export type PortfolioListProps = ViewProps & {
 	portfolios: Portfolio[],
@@ -37,14 +38,17 @@ export function PortfolioList({ portfolios, lightColor, darkColor, ...otherProps
 			<ThemedText type='h5' style={styles.label}>
 				Portfolios
 			</ThemedText>
-			<Ionicons name={"add"} size={24} color={textColor}/>
+
+      <InternalLink href="/portfolio/edit">
+			  <Ionicons name={"add"} size={24} color={textColor}/>
+      </InternalLink>
 		</View>
 		
 		<View>
-      <PortfolioRow portfolio={overviewPortfolio} />
+      <PortfolioRow portfolio={overviewPortfolio} isEditable={false}/>
       {
         portfolios.map((portfolio) => (
-          <PortfolioRow key={portfolio.id} portfolio={portfolio} />
+          <PortfolioRow key={portfolio.id} portfolio={portfolio} isEditable={true}/>
         ))
       }
 		</View>

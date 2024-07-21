@@ -40,7 +40,6 @@ export default function HomeScreen() {
       <PortfolioList portfolios={portfolios}/>
     
       <InternalLink href="/stock">Stock</InternalLink>
-      <InternalLink href="/portfolio/edit">New portfolio</InternalLink>
       <StatusBar style="auto" />
     </ThemedScrollView>
   );

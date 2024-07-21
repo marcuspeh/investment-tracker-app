@@ -4,15 +4,17 @@ import { Ionicons } from '@expo/vector-icons';
 import { ThemedText } from '@/components/atoms/ThemedText';
 import { useThemeColor } from '@/hooks/useThemeColor';
 import Portfolio from '@/watermelon/Portfolio';
+import { InternalLink } from '@/components/atoms/InternalLink';
 
 export type PortfolioRowProps = ViewProps & {
 	portfolio: Portfolio,
+  isEditable: boolean,
 
   lightColor?: string;
   darkColor?: string;
 };
 
-export function PortfolioRow({ portfolio, lightColor, darkColor, ...otherProps }: PortfolioRowProps) {
+export function PortfolioRow({ portfolio, isEditable, lightColor, darkColor, ...otherProps }: PortfolioRowProps) {
   const lightTextColor = useThemeColor({ light: lightColor, dark: darkColor }, 'lightColor');
   const textColor = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
   const borderColor = useThemeColor({ light: lightColor, dark: darkColor }, 'borderColor');
@@ -28,9 +30,19 @@ export function PortfolioRow({ portfolio, lightColor, darkColor, ...otherProps }
 			</ThemedText>
 		</View>
 		
-		<View>
-			<Ionicons name={"pencil"} size={16} color={textColor}/>
-		</View>
+    <View>
+    {
+      isEditable && (
+        <InternalLink push href={{
+          pathname: "/portfolio/edit?id=[id]",
+          params: { "id": portfolio.id }
+        }}>
+          <Ionicons name={"pencil"} size={16} color={textColor}/>
+        </InternalLink>
+      )
+    }
+    </View>
+
   </View>
 }
 
