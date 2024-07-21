@@ -17,7 +17,7 @@ export const Colors = {
     graphLineColor: "#1A38B2",
     graphGridColor: "#00000055",
 
-    componentBackgroundColor: "#6482FF",
+    componentBackgroundColor: "#6482FF88",
 
     buttonInactiveBackground: "#DDDDDD",
     buttonInactiveText: "#505050",
@@ -26,6 +26,8 @@ export const Colors = {
 
     borderColor: "#0A0A0A",
     errorBorderColor: "#FF0000",
+
+    donutChartColor: "#FAE187",
   },
   dark: {
     text: '#ECEDEE',
@@ -54,5 +56,7 @@ export const Colors = {
     
     borderColor: "#ABABAB",
     errorBorderColor: "#FF0000",
+    
+    donutChartColor: "#FAE187",
   },
 };

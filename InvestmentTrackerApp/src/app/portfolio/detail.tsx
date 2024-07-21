@@ -9,6 +9,7 @@ import { PortfolioHeader } from '@/components/page/portfolioDetail/PortfolioHead
 import { PortfolioChart } from '@/components/page/portfolioDetail/PortfolioChart';
 import { PortfolioData } from '@/components/page/portfolioDetail/PortfolioData';
 import { HoldingList } from '@/components/page/portfolioDetail/HoldingList';
+import { ThemedPieChart, ThemedPieChartData } from '@/components/atoms/ThemedPieChart';
 
 export default function PortfolioEditScreen() {
   const { id } = useLocalSearchParams<{ id: string }>()
@@ -35,6 +36,21 @@ export default function PortfolioEditScreen() {
     //   })
   }, [])
   
+  const pieChartData: ThemedPieChartData[] = [
+    {
+      label: "number1",
+      value: 353,
+    },
+    {
+      label: "number2",
+      value: 1944,
+    },
+    {
+      label: "number3",
+      value: 835,
+    },
+  ]
+
   return (
     <ThemedScrollView>
       <Stack.Screen
@@ -42,6 +58,7 @@ export default function PortfolioEditScreen() {
           title: portfolio?.title,
         }}
       />
+      <ThemedPieChart data={pieChartData}/>
       <PortfolioHeader marketPrice={132425.92} changeAmount={143394.234} />
       <PortfolioChart symbol={"aapl"} />
       <PortfolioData unrealized={-24252} realized={249784}/>
