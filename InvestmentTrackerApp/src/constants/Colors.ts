@@ -7,7 +7,7 @@ export const Colors = {
     background: '#fff',
 
     neutralBackgroundColor: '#ABABAB',
-    neutralText: '#000000',
+    neutralText: '#ECEDEE',
     increaseBackgroundColor: '#24DD7D',
     increaseText: '#0F8849',
     decreaseBackgroundColor: '#FF9D7E',
@@ -29,13 +29,13 @@ export const Colors = {
   },
   dark: {
     text: '#ECEDEE',
-    lightColor: "#555555",
+    lightColor: "#888888",
     darkText: '#1A38B2',
     errorText: "#FF0000",
     background: '#151718',
 
     neutralBackgroundColor: '#ABABAB',
-    neutralText: '#000000',
+    neutralText: '#ECEDEE',
     increaseBackgroundColor: '#24DD7D',
     increaseText: '#0F8849',
     decreaseBackgroundColor: '#FF9D7E',

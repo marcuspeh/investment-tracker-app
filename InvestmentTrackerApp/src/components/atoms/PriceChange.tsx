@@ -3,7 +3,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 import { useThemeColor } from '@/hooks/useThemeColor';
 import { ThemedText } from './ThemedText';
-import { ParsePrice } from '@/util/FormatNumber';
+import { ParsePercentage, ParsePrice } from '@/util/FormatNumber';
 
 export type PriceChangeLabelProps = ViewProps & {
   change: number;
@@ -35,7 +35,7 @@ export function PriceChangeLabel({ style, change, percent, lightColor, darkColor
     <View style={[{ backgroundColor }, styles.container, style]} >
       <Ionicons name={iconName} size={16} color={textColor}/>
       <ThemedText type='s1' style={[styles.text, { color: textColor }]}>
-        {ParsePrice(change)} ({percent.toFixed(3)}%)
+        {ParsePrice(change)} ({ParsePercentage(percent)})
       </ThemedText>
     </View>
   )

@@ -5,6 +5,10 @@ import { PortfolioForm } from "@/components/page/portfolioEdit/PortfolioForm";
 import Portfolio from '@/watermelon/Portfolio';
 import { useEffect, useState } from 'react';
 import { getPortfolioByID } from '@/db/portfolioDB';
+import { PortfolioHeader } from '@/components/page/portfolioDetail/PortfolioHeader';
+import { PortfolioChart } from '@/components/page/portfolioDetail/PortfolioChart';
+import { PortfolioData } from '@/components/page/portfolioDetail/PortfolioData';
+import { HoldingList } from '@/components/page/portfolioDetail/HoldingList';
 
 export default function PortfolioEditScreen() {
   const { id } = useLocalSearchParams<{ id: string }>()
@@ -38,7 +42,10 @@ export default function PortfolioEditScreen() {
           title: portfolio?.title,
         }}
       />
-      <PortfolioForm portfolio={portfolio}/>
+      <PortfolioHeader marketPrice={132425.92} changeAmount={143394.234} />
+      <PortfolioChart symbol={"aapl"} />
+      <PortfolioData unrealized={-24252} realized={249784}/>
+      <HoldingList />
     </ThemedScrollView>
   );
 }

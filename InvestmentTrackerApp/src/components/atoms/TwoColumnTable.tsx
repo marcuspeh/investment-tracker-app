@@ -1,9 +1,12 @@
 import { StyleSheet, View } from 'react-native';
 import { ThemedText } from './ThemedText';
+import { CheckEmptyString } from '@/util/CheckEmpty';
 
 type RowData = {
-  title: string,
+  title: string
   description: string
+  titleColor?: string
+  descriptionColor?: string
 }
 
 export type TwoColumnTableProps = {
@@ -17,8 +20,18 @@ export function TwoColumnTable({ data, ...rest }: TwoColumnTableProps) {
       {
         data.map((prop, i) => 
           <View key={`${prop.title}-${i}`}  style={styles.row}>
-            <ThemedText type="s1" style={styles.leftCell}>{prop.title}</ThemedText>
-            <ThemedText type="s1" style={styles.rightCell}>{prop.description}</ThemedText>
+            <ThemedText type="s1" style={[
+              styles.leftCell, 
+              !CheckEmptyString(prop.titleColor) && { color: prop.titleColor }
+            ]}>
+              {prop.title}
+            </ThemedText>
+            <ThemedText type="s1" style={[
+              styles.rightCell, 
+              !CheckEmptyString(prop.descriptionColor) && { color: prop.descriptionColor }
+            ]}>
+              {prop.description}
+            </ThemedText>
           </View>
         )
       }
@@ -30,7 +43,7 @@ const styles = StyleSheet.create({
   table: {
     marginTop: 10,
     marginBottom: 10,
-
+    paddingBottom: 4,
   },
   row: {
     display: "flex",

@@ -38,8 +38,6 @@ export default function HomeScreen() {
       <TopBar username="John Doe"/>
       <InvestmentSummary />
       <PortfolioList portfolios={portfolios}/>
-    
-      <InternalLink href="/stock">Stock</InternalLink>
       <StatusBar style="auto" />
     </ThemedScrollView>
   );

@@ -25,8 +25,20 @@ const ParsePrice = (price: number): string => {
   return `-\$${-price.toFixed(3)}`
 }
 
+const ParsePriceWithFormat = (price: number): string => {
+  if (price >= 0) {
+    return `\$${FormatLargeNumber(price)}`
+  }
+  return `-\$${FormatLargeNumber(-price)}`
+}
+
+const ParsePercentage = (percent: number): string => {
+  return `${percent.toFixed(3)}%`
+}
 
 export {
   FormatLargeNumber,
-  ParsePrice
+  ParsePrice,
+  ParsePercentage,
+  ParsePriceWithFormat
 }

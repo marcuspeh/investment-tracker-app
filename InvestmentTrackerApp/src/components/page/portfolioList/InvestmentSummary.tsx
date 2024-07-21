@@ -3,7 +3,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 import { ThemedText } from '@/components/atoms/ThemedText';
 import { useThemeColor } from '@/hooks/useThemeColor';
-import { FormatLargeNumber } from '@/util/FormatNumber';
+import { ParsePercentage, ParsePrice, ParsePriceWithFormat } from '@/util/FormatNumber';
 
 export type InvestmentSummaryProps = ViewProps & {
   lightColor?: string;
@@ -38,7 +38,7 @@ export function InvestmentSummary({ lightColor, darkColor, ...otherProps }: Inve
           Your Investments
         </ThemedText>
         <ThemedText type='h5'>
-          ${FormatLargeNumber(value)}
+          {ParsePriceWithFormat(value)}
         </ThemedText>
       </View>
       <View style={styles.rightColumn}>
@@ -46,12 +46,12 @@ export function InvestmentSummary({ lightColor, darkColor, ...otherProps }: Inve
           Change
         </ThemedText>
         <ThemedText type='p1'>
-          ${FormatLargeNumber(changeAmount)}
+          {ParsePriceWithFormat(changeAmount)}
         </ThemedText>
         <View style={styles.row}>
           <Ionicons name={iconName} size={16} color={percentageColor}/>
           <ThemedText type='l2' style={[{ color: percentageColor }, styles.label]}>
-            {percent.toFixed(3)}%
+            {ParsePercentage(percent)}
           </ThemedText>
         </View>
       </View>

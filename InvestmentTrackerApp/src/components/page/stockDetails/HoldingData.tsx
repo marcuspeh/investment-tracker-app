@@ -1,7 +1,7 @@
 import { StyleSheet, View, type ViewProps } from 'react-native';
 
 import { TwoColumnTable, TwoColumnTableProps} from '@/components/atoms/TwoColumnTable';
-import { FormatLargeNumber } from '@/util/FormatNumber';
+import { FormatLargeNumber, ParsePriceWithFormat } from '@/util/FormatNumber';
 import { useThemeColor } from '@/hooks/useThemeColor';
 import { ThemedButton } from '../../atoms/ThemedButton';
 
@@ -17,7 +17,7 @@ export function HoldingData({ style, lightColor, darkColor, ...otherProps }: Hol
   
   function getHoldingData(): TwoColumnTableProps {
     const holding = FormatLargeNumber(535)
-    const value = FormatLargeNumber(0)
+    const value = ParsePriceWithFormat(2352.25)
 
     return {
       data: [
