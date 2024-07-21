@@ -16,7 +16,6 @@ export type PortfolioFormProps =  {
 };
 
 export function PortfolioForm({ portfolio, lightColor, darkColor }: PortfolioFormProps) {
-  console.log(portfolio)
   const buttonActiveBackground = useThemeColor({ light: lightColor, dark: darkColor }, 'buttonActiveBackground');
   const buttonActiveText = useThemeColor({ light: lightColor, dark: darkColor }, 'buttonActiveText');
 

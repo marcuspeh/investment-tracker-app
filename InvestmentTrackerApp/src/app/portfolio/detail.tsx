@@ -35,7 +35,7 @@ export default function PortfolioEditScreen() {
     <ThemedScrollView>
       <Stack.Screen
         options={{
-          title: portfolio?.title || "Create Porfolio"
+          title: portfolio?.title,
         }}
       />
       <PortfolioForm portfolio={portfolio}/>

@@ -1,10 +1,11 @@
-import { StyleSheet, View, type ViewProps } from 'react-native';
+import { Pressable, StyleSheet, View, type ViewProps } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import { ThemedText } from '@/components/atoms/ThemedText';
 import { useThemeColor } from '@/hooks/useThemeColor';
 import Portfolio from '@/watermelon/Portfolio';
 import { InternalLink } from '@/components/atoms/InternalLink';
+import { router } from 'expo-router';
 
 export type PortfolioRowProps = ViewProps & {
 	portfolio: Portfolio,
@@ -19,28 +20,37 @@ export function PortfolioRow({ portfolio, isEditable, lightColor, darkColor, ...
   const textColor = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
   const borderColor = useThemeColor({ light: lightColor, dark: darkColor }, 'borderColor');
 
+  const onClickPortfolio = () => {
+    router.push({
+      pathname: "/portfolio/detail?id=[id]",
+      params: { "id": portfolio.id }
+    });
+  }
 
   return <View style={[styles.container, { borderBottomColor: borderColor }]}>
-		<View style={styles.leftColumn}>
-			<ThemedText type='p1'>
+		<Pressable 
+      onPress={onClickPortfolio} 
+      style={styles.leftColumn}>
+			<ThemedText type='p1'
+    >
 				{portfolio.title}
 			</ThemedText>
 			<ThemedText type='l2' style={{ color: lightTextColor }}>
 				Note: {portfolio.description || "-"}
 			</ThemedText>
-		</View>
-		
+		</Pressable>
+
     <View>
-    {
-      isEditable && (
-        <InternalLink push href={{
-          pathname: "/portfolio/edit?id=[id]",
-          params: { "id": portfolio.id }
-        }}>
-          <Ionicons name={"pencil"} size={16} color={textColor}/>
-        </InternalLink>
-      )
-    }
+      {
+        isEditable && (
+          <InternalLink push href={{
+            pathname: "/portfolio/edit?id=[id]",
+            params: { "id": portfolio.id }
+          }}>
+            <Ionicons name={"pencil"} size={16} color={textColor}/>
+          </InternalLink>
+        )
+      }
     </View>
 
   </View>
@@ -60,5 +70,6 @@ const styles = StyleSheet.create({
   leftColumn: {
     display: "flex",
     alignItems: "flex-start",
+    width: "auto"
   },
 });

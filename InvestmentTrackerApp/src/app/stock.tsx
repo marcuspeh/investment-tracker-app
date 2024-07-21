@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { Stack } from 'expo-router'
+
 
 import { getQuote } from '@/external/YahooFinance'
 import { ApiResponseModel } from '@/model/ApiResponseModel';
@@ -28,6 +30,11 @@ export default function StockScreen() {
 
   return (
     <ThemedScrollView>
+      <Stack.Screen
+        options={{
+          title: "Apple"
+        }}
+      />
       <StockHeader quoteData={quoteData} />
       <QuoteChart symbol={"aapl"} />
       <HoldingData />
