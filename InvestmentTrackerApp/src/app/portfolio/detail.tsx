@@ -1,15 +1,13 @@
 import { useLocalSearchParams, Stack } from 'expo-router'
 
 import { ThemedScrollView } from "@/components/atoms/ThemedScrollView";
-import { PortfolioForm } from "@/components/page/portfolioEdit/PortfolioForm";
 import Portfolio from '@/watermelon/Portfolio';
 import { useEffect, useState } from 'react';
-import { getPortfolioByID } from '@/db/portfolioDB';
 import { PortfolioHeader } from '@/components/page/portfolioDetail/PortfolioHeader';
 import { PortfolioChart } from '@/components/page/portfolioDetail/PortfolioChart';
 import { PortfolioData } from '@/components/page/portfolioDetail/PortfolioData';
 import { HoldingList } from '@/components/page/portfolioDetail/HoldingList';
-import { ThemedPieChart, ThemedPieChartData } from '@/components/atoms/ThemedPieChart';
+import { ThemedDoughnutChart, ThemedDoughnutChartData } from '@/components/atoms/ThemedDoughnutChart';
 
 export default function PortfolioEditScreen() {
   const { id } = useLocalSearchParams<{ id: string }>()
@@ -36,7 +34,7 @@ export default function PortfolioEditScreen() {
     //   })
   }, [])
   
-  const pieChartData: ThemedPieChartData[] = [
+  const pieChartData: ThemedDoughnutChartData[] = [
     {
       label: "number1",
       value: 353,
@@ -58,7 +56,7 @@ export default function PortfolioEditScreen() {
           title: portfolio?.title,
         }}
       />
-      <ThemedPieChart data={pieChartData}/>
+      <ThemedDoughnutChart data={pieChartData} topic={"Overall"}/>
       <PortfolioHeader marketPrice={132425.92} changeAmount={143394.234} />
       <PortfolioChart symbol={"aapl"} />
       <PortfolioData unrealized={-24252} realized={249784}/>
