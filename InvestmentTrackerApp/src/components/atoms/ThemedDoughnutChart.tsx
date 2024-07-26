@@ -13,7 +13,6 @@ export type ThemedDoughnutChartData = {
 
 export type ThemedDoughnutChartProps = {
   data: ThemedDoughnutChartData[]
-  topic: string
 
   lightColor?: string;
   darkColor?: string;
@@ -35,7 +34,7 @@ function prepareData(data: ThemedDoughnutChartData[], donutChartColor: string, s
   )
 }
 
-export function ThemedDoughnutChart({ data, topic, lightColor, darkColor  }: ThemedDoughnutChartProps) {
+export function ThemedDoughnutChart({ data, lightColor, darkColor  }: ThemedDoughnutChartProps) {
   const donutChartColor = useThemeColor({ light: lightColor, dark: darkColor }, 'donutChartColor');
   const font = useFonts({
     SpaceMono: [spacemono]

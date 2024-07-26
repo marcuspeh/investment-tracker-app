@@ -28,6 +28,7 @@ export const Colors = {
     errorBorderColor: "#FF0000",
 
     donutChartColor: "#FAE187",
+    dropdown: "#FFFFFF",
   },
   dark: {
     text: '#ECEDEE',
@@ -58,5 +59,6 @@ export const Colors = {
     errorBorderColor: "#FF0000",
     
     donutChartColor: "#FAE187",
+    dropdown: "#FFFFFF",
   },
 };
