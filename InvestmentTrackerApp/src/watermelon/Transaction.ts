@@ -1,6 +1,12 @@
 import { Model } from '@nozbe/watermelondb'
 import { date, readonly, text, field, relation } from '@nozbe/watermelondb/decorators'
 
+export enum TransactionType {
+  Buy = 1,
+  Sell = 2,
+  Dividend = 3
+}
+
 export default class Transaction extends Model {
   static table = 'transaction'
   static associations = {

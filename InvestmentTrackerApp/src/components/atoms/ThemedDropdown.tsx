@@ -12,19 +12,17 @@ export type ThemedDropdownData = {
 }
 
 export type ThemedDropdownProps = {
-  onSelect: (value: string) => void
+  onChange: (value: ThemedDropdownData) => void
   datas: ThemedDropdownData[]
-  defaultData: ThemedDropdownData
+  selectedData: ThemedDropdownData
   
   lightColor?: string;
   darkColor?: string;
 };
 
 
-export function ThemedDropdown({ onSelect, datas, defaultData, lightColor, darkColor }: ThemedDropdownProps) {
+export function ThemedDropdown({ onChange, datas, selectedData, lightColor, darkColor }: ThemedDropdownProps) {
   const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'dropdown');
-
-  const [selectedData, setSelectedData] = useState<ThemedDropdownData>(defaultData);
 
   function renderItem(data: ThemedDropdownData) {
     return (
@@ -35,11 +33,6 @@ export function ThemedDropdown({ onSelect, datas, defaultData, lightColor, darkC
         )}
       </View>
     );
-  }
-
-  function onChange(item: ThemedDropdownData): void {
-    setSelectedData(item);
-    onSelect(item.value);
   }
 
 
@@ -68,8 +61,7 @@ const styles = StyleSheet.create({
     borderColor: '#ccc',
     borderWidth: 1,
     borderRadius: 12,
-    padding: 12,
-    elevation: 2,
+    padding: 12
   },
   icon: {
     marginRight: 5,

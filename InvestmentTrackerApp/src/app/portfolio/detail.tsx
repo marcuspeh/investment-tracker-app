@@ -8,6 +8,7 @@ import { PortfolioChart } from '@/components/page/portfolioDetail/PortfolioChart
 import { PortfolioData } from '@/components/page/portfolioDetail/PortfolioData';
 import { HoldingList } from '@/components/page/portfolioDetail/HoldingList';
 import { BreakdownChart } from '@/components/page/portfolioDetail/BreakdownChart';
+import { TransactionType } from '@/watermelon/Transaction';
 
 export default function PortfolioEditScreen() {
   const { id } = useLocalSearchParams<{ id: string }>()
@@ -22,6 +23,84 @@ export default function PortfolioEditScreen() {
       id: id,
       title: "Portfolio 2",
       description: "My second portfolio",
+      financialInstrucments: [
+        {
+          symbol: "AAPL",
+          shortName: "Apple Inc",
+          assetType: "EQUITY",
+          exchange: "NASDAQ",
+          country: "US",
+          currency: "USD",
+          transactions: [
+            {
+              quantity: 24,
+              amountPerUnit: 163.535,
+              commission: 1.42,
+              isCommissionPercentage: false,
+              transactionType: TransactionType.Buy
+            },
+            {
+              quantity: 9,
+              amountPerUnit: 183.535,
+              commission: 0.54,
+              isCommissionPercentage: false,
+              transactionType: TransactionType.Sell
+            },
+            {
+              quantity: 6,
+              amountPerUnit: 192.035,
+              commission: 1.42,
+              isCommissionPercentage: false,
+              transactionType: TransactionType.Sell
+            },
+            {
+              quantity: 26,
+              amountPerUnit: 203.535,
+              commission: 1.19,
+              isCommissionPercentage: false,
+              transactionType: TransactionType.Buy
+            },
+          ]
+        },
+        {
+          symbol: "AMD",
+          shortName: "Advanced Micro Devices, Inc.",
+          assetType: "EQUITY",
+          exchange: "NASDAQ",
+          country: "US",
+          currency: "USD",
+          transactions: [
+            {
+              quantity: 24,
+              amountPerUnit: 73.124,
+              commission: 0.24,
+              isCommissionPercentage: true,
+              transactionType: TransactionType.Buy
+            },
+            {
+              quantity: 9,
+              amountPerUnit: 83.535,
+              commission: 0.54,
+              isCommissionPercentage: false,
+              transactionType: TransactionType.Sell
+            },
+            {
+              quantity: 6,
+              amountPerUnit: 92.035,
+              commission: 1.2,
+              isCommissionPercentage: false,
+              transactionType: TransactionType.Sell
+            },
+            {
+              quantity: 26,
+              amountPerUnit: 102.535,
+              commission: 1.19,
+              isCommissionPercentage: false,
+              transactionType: TransactionType.Buy
+            },
+          ]
+        }
+      ]
     } as Portfolio)
 
     // getPortfolioByID(id)
