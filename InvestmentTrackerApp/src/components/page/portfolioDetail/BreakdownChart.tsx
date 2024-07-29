@@ -24,20 +24,7 @@ const dropdownLabels: ThemedDropdownData[] = [
 
 export function BreakdownChart({ portfolio }: BreakdownChartProps) {
   const [label, setLabel] = useState<ThemedDropdownData>(dropdownLabels[0])
-  const [pieChartData, setPieChartData] = useState<ThemedDoughnutChartData[]>([
-    {
-      label: "",
-      value: 33.0,
-    },
-    {
-      label: "",
-      value: 33.0,
-    },
-    {
-      label: "",
-      value: 33.0,
-    }
-  ])
+  const [pieChartData, setPieChartData] = useState<ThemedDoughnutChartData[]>([])
 
   useEffect(() => {
     updatePieChartData(label)

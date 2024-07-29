@@ -4,7 +4,7 @@ import { ThemedDoughnutChartData } from "@/components/atoms/ThemedDoughnutChart"
 import { TransactionType } from "@/watermelon/Transaction";
 
 function CalculateIndividualAsset(portfolio: Portfolio, assetPrices: Map<string, number>): ThemedDoughnutChartData[] {
-  const result: ThemedDoughnutChartData[] = [];
+  let result: ThemedDoughnutChartData[] = [];
 
   for (const financialInstrument of portfolio?.financialInstrucments) {
     let quantity: number = 0.0
@@ -12,8 +12,10 @@ function CalculateIndividualAsset(portfolio: Portfolio, assetPrices: Map<string,
       switch(transaction?.transactionType) {
         case TransactionType.Buy:
           quantity += transaction?.quantity || 0.0
+          break
         case TransactionType.Sell:
           quantity -= transaction?.quantity || 0.0
+          break
         case TransactionType.Dividend:
           continue
         default:
@@ -24,12 +26,12 @@ function CalculateIndividualAsset(portfolio: Portfolio, assetPrices: Map<string,
     const symbol: string = financialInstrument.symbol
     const price: number = assetPrices.get(symbol) || 0
     const value: number = price * quantity
-    result.concat({
+    result.push({
       value: value,
       label: symbol
     })
   }
-    
+  
   return result
 }
 

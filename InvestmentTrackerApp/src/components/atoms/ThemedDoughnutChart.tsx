@@ -109,7 +109,18 @@ export function ThemedDoughnutChart({ data, lightColor, darkColor  }: ThemedDoug
       .build();
   }
 
-  const pieData: ParsedThemedDoughnutChartData[] = prepareData(data, donutChartColor, -90)
+  let pieData: ParsedThemedDoughnutChartData[] = prepareData(data, donutChartColor, -90)
+  let innerRadius: string = "65%"
+  if (pieData.length === 0) {
+    innerRadius = "100%"
+    pieData.push(
+      {
+        value: 50,
+        label: "",
+        color: donutChartColor
+      },
+    )
+  }
 
   return  (
     <View style={styles.container}>
@@ -119,7 +130,7 @@ export function ThemedDoughnutChart({ data, lightColor, darkColor  }: ThemedDoug
         valueKey={"value"}
         labelKey={"label"}
       >
-        <Pie.Chart innerRadius={"65%"} startAngle={-90}>
+        <Pie.Chart innerRadius={innerRadius} startAngle={-90}>
           {
             ({ slice }) => (
                 <PieSlice slice={slice}/>
