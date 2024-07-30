@@ -120,6 +120,8 @@ export function ThemedDoughnutChart({ data, lightColor, darkColor  }: ThemedDoug
         color: donutChartColor
       },
     )
+  } else if (pieData.length === 1) {
+    innerRadius = "100%"
   }
 
   return  (

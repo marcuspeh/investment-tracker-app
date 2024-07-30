@@ -41,6 +41,7 @@ export function BreakdownChart({ portfolio }: BreakdownChartProps) {
     const assetPrices: Map<string, number> = new Map<string, number>()
     assetPrices.set("AMD", 129.23)
     assetPrices.set("AAPL", 201.24)
+    assetPrices.set("D05.SI", 38.23)
 
     const data = CalculateDropdownData(portfolio, assetPrices, label.value)
     setPieChartData(data)

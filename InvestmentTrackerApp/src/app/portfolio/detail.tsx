@@ -99,6 +99,30 @@ export default function PortfolioEditScreen() {
               transactionType: TransactionType.Buy
             },
           ]
+        },
+        {
+          symbol: "D05.SI",
+          shortName: "DBS Group Holdings Ltd",
+          assetType: "EQUITY",
+          exchange: "SES",
+          country: "SG",
+          currency: "SGD",
+          transactions: [
+            {
+              quantity: 300,
+              amountPerUnit: 32.23,
+              commission: 11.22,
+              isCommissionPercentage: false,
+              transactionType: TransactionType.Buy
+            },
+            {
+              quantity: 100,
+              amountPerUnit: 36.33,
+              commission: 11.22,
+              isCommissionPercentage: false,
+              transactionType: TransactionType.Sell
+            },
+          ]
         }
       ]
     } as Portfolio)
