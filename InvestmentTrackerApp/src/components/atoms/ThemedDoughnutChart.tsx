@@ -43,9 +43,8 @@ export function ThemedDoughnutChart({ data, lightColor, darkColor  }: ThemedDoug
   function PieSlice({ slice }: { slice: PieSliceData }) {  
     const path = useSlicePath({
       slice: {
-        ...slice,
-        startAngle: slice.startAngle,
-        endAngle: slice.endAngle - 1.5,
+        ...slice,        
+        endAngle: pieData.length > 1 ? slice.endAngle - 1.5 : slice.endAngle,
       }
     });
 
@@ -121,7 +120,7 @@ export function ThemedDoughnutChart({ data, lightColor, darkColor  }: ThemedDoug
       },
     )
   } else if (pieData.length === 1) {
-    innerRadius = "100%"
+    // innerRadius = "100%"
   }
 
   return  (
